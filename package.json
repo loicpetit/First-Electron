@@ -2,9 +2,11 @@
   "name": "electron-quick-start",
   "version": "1.0.0",
   "description": "A minimal Electron application",
-  "main": "main.js",
+  "main": "target/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "npm run build && electron .",
+    "debug": "npm run build && electron --debug=5858 .",
+    "build": "tsc"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +19,8 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "@types/electron": "^1.6.10",
+    "electron": "^1.6.2",
+    "typescript": "^2.4.1"
   }
 }
