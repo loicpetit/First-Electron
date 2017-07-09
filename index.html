@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>
-      <!-- All of the Node.js APIs are available in this renderer process. -->
-      We are using Node.js <script>document.write(process.versions.node)</script>,
-      Chromium <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
-    </p>
-    <button id="clickMe" type="button">click me !</button>
-  </body>
-  <!--
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <h1>Hello World!</h1>
+  <p>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js
+    <script>
+      document.write(process.versions.node)
+    </script>, Chromium
+    <script>
+      document.write(process.versions.chrome)
+    </script>, and Electron
+    <script>
+      document.write(process.versions.electron)
+    </script>.
+  </p>
+  <button id="clickMe" type="button">click me !</button>
+  <div>
+    <input id="tacheLibelle" type="text"/>
+    <button id="tacheAdd" type="button">Add tache</button>
+  </div>
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th style="width: 20%;">Id</th>
+        <th style="width: 75%;">Libelle</th>
+      </tr>
+    </thead>
+    <tbody id="taches">
+    </tbody>
+  </table>
+</body>
+<!--
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
   </script>
   -->
-  <script src="./renderer.js"></script>
+<script src="./renderer.js"></script>
+
 </html>
