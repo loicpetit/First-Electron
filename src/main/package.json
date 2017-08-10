@@ -1,0 +1,8 @@
+{
+  "name": "first-electron",
+  "version": "1.0.0",
+  "description": "First Electron App",
+  "main": "main.js",
+  "author": "LPT",
+  "license": "MIT"
+}

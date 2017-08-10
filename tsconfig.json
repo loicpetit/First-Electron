@@ -2,11 +2,9 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "sourceMap": true,
-        "outDir": "target"
+        "sourceMap": true
     },
-    "exclude": [
-        "node_modules",
-        "target"
+    "include": [
+        "src/main/**/*"
     ]
 }
