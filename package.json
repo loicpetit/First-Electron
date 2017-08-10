@@ -1,12 +1,15 @@
 {
-  "name": "electron-quick-start",
+  "name": "first-electron",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "description": "First Electron app",
+  "main": "build/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "npm run build && electron .",
+    "debug": "npm run build && electron --debug=5858 .",
+    "build": "gulp",
+    "package": "gulp Package"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/loicpetit/First-Electron",
   "keywords": [
     "Electron",
     "quick",
@@ -17,6 +20,12 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.6.2"
-  }
+    "electron": "^1.6.2",
+    "electron-packager": "^8.7.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-typescript": "^3.2.1",
+    "typescript": "^2.4.1"
+  },
+  "dependencies": {}
 }
