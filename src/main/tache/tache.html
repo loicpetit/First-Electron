@@ -1,1 +1,72 @@
-<h2>Tache</h2>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>First-Electron</title>
+  <!-- Styles -->  
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+
+<body style="padding-top: 70px; padding-bottom: 30px;">
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">First-Electron</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="#">Taches</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <!-- CONTENT -->  
+  <div class="container">
+      <div class="row">
+          <section class="col-sm-9">
+            <h1>Taches</h1>
+            <button id="clickMe" type="button">click me !</button>
+            <div>
+              <input id="tacheLibelle" type="text"/>
+              <button id="tacheAdd" type="button">Add tache</button>
+            </div>
+            <table style="width: 100%">
+              <thead>
+                <tr>
+                  <th style="width: 20%;">Id</th>
+                  <th style="width: 75%;">Libelle</th>
+                </tr>
+              </thead>
+              <tbody id="taches">
+              </tbody>
+            </table>
+          </section>
+          <aside class="col-sm-3">
+          </aside>
+      </div>
+  </div>
+</body>
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+  -->
+<script src="../renderer.js"></script>
+
+</html>
