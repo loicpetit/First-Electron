@@ -2,16 +2,30 @@ const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const less = require('gulp-less');
 const packager = require('electron-packager');
+const install = require('gulp-install');
+const del = require('del');
 
-/* DEFAULT TASKS */
+/*  CLEAN */
+
+gulp.task('Clean:build', function(){
+    return del(['build']);
+});
+
+gulp.task('Clean:package', ['Clean:build'], function(){
+    return del(['package']);
+});
+
+gulp.task('Clean', ['Clean:build', 'Clean:package']);
+
+/* BUILD */
 
 gulp.task('Copy', function(){
-    return gulp.src(['src/main/**/*.html', 'src/main/package.json'])
+    return gulp.src(['src/main/**/*.html', 'src/main/package.json', '!src/main/node_modules/**'])
             .pipe(gulp.dest('build'))
 });
 
 gulp.task('Less', function(){
-    return gulp.src('src/main/**/*.less')
+    return gulp.src(['src/main/**/*.less', '!src/main/node_modules/**'])
             .pipe(less())
             .pipe(gulp.dest('build'));
 });
@@ -23,11 +37,16 @@ gulp.task('TypeScript', function(){
         .js.pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['Copy', 'Less', 'TypeScript']);
+gulp.task('Install', ['Copy'], function(){
+    return gulp.src('build/package.json')
+        .pipe(install());
+})
+
+gulp.task('Build', ['Copy', 'Install', 'Less', 'TypeScript']);
 
 /*  PACKAGE TASKS */
 
-gulp.task('Package', ['default'], function(){
+gulp.task('Package', ['Build'], function(done){
     packager({
         dir: 'build',
         out: 'package'
@@ -35,5 +54,6 @@ gulp.task('Package', ['default'], function(){
         if(err){
             console.error('Error during packagiing: ', err);
         }
+        done();
     });
 });

@@ -6,5 +6,8 @@
     },
     "include": [
         "src/main/**/*"
+    ],
+    "excluse": [
+        "src/main/node_modules"
     ]
 }

@@ -6,8 +6,9 @@
   "scripts": {
     "start": "npm run build && electron .",
     "debug": "npm run build && electron --debug=5858 .",
-    "build": "gulp",
-    "package": "gulp Package"
+    "clean": "gulp Clean",
+    "build": "gulp Clean:build && gulp Build",
+    "package": "gulp Clean:package && gulp Package"
   },
   "repository": "https://github.com/loicpetit/First-Electron",
   "keywords": [
@@ -20,9 +21,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "del": "^3.0.0",
     "electron": "^1.6.2",
     "electron-packager": "^8.7.2",
     "gulp": "^3.9.1",
+    "gulp-install": "^1.1.0",
     "gulp-less": "^3.3.2",
     "gulp-typescript": "^3.2.1",
     "typescript": "^2.4.1"
