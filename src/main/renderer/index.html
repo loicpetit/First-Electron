@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <title>First-Electron</title>
   <!-- Styles -->  
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
 </head>
 
-<body style="padding-top: 70px; padding-bottom: 30px;">
+<body style="padding-top: 70px; padding-bottom: 30px;" ng-app="first-electron" ng-controller="MainController">
   <!-- NAVIGATION -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -21,12 +22,12 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html">First-Electron</a>
+              <a class="navbar-brand" ui-sref="home">First-Electron</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                   <li>
-                      <a href="tache/tache.html">Taches</a>
+                      <a ui-sref="taches">Taches</a>
                   </li>
               </ul>
           </div>
@@ -35,23 +36,19 @@
   <!-- CONTENT -->  
   <div class="container">
       <div class="row">
-          <section class="col-sm-9">
-            <h1>Hello World!</h1>
-          </section>
-          <aside class="col-sm-3">
-          </aside>
+            <section class="col-sm-9" ui-view>
+            </section>
+            <aside class="col-sm-3" ui-view="aside">
+            </aside>
       </div>
   </div>
 </body>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!--
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
-  </script>
-  -->
-<script src="renderer.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+<script>require('./renderer');</script>
 
 </html>

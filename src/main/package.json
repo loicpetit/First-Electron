@@ -2,11 +2,13 @@
   "name": "first-electron",
   "version": "1.0.0",
   "description": "First Electron App",
-  "main": "main.js",
+  "main": "main-process/main.js",
   "author": "LPT",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "angular": "^1.6.5",
+    "@uirouter/angularjs": "^1.0.6"
   }
 }
