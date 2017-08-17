@@ -7,42 +7,42 @@ const del = require('del');
 
 /*  CLEAN */
 
-gulp.task('Clean:build', function(){
+gulp.task('Clean:Build', function(){
     return del(['build']);
 });
 
-gulp.task('Clean:package', ['Clean:build'], function(){
+gulp.task('Clean:Package', ['Clean:build'], function(){
     return del(['package']);
 });
 
-gulp.task('Clean', ['Clean:build', 'Clean:package']);
+gulp.task('Clean', ['Clean:Build', 'Clean:Package']);
 
 /* BUILD */
 
-gulp.task('Copy', function(){
+gulp.task('Build:Copy', function(){
     return gulp.src(['src/main/**/*.html', 'src/main/package.json', '!src/main/node_modules/**'])
             .pipe(gulp.dest('build'))
 });
 
-gulp.task('Less', function(){
+gulp.task('Build:Less', function(){
     return gulp.src(['src/main/**/*.less', '!src/main/node_modules/**'])
             .pipe(less())
             .pipe(gulp.dest('build'));
 });
 
-gulp.task('TypeScript', function(){
+gulp.task('Build:TypeScript', function(){
     var project = ts.createProject('tsconfig.json');
     return project.src()
         .pipe(project())
         .js.pipe(gulp.dest('build'));
 });
 
-gulp.task('Install', ['Copy'], function(){
+gulp.task('Build:Install', ['Copy'], function(){
     return gulp.src('build/package.json')
         .pipe(install());
 })
 
-gulp.task('Build', ['Copy', 'Install', 'Less', 'TypeScript']);
+gulp.task('Build', ['Build:Copy', 'Build:Install', 'Build:Less', 'Build:TypeScript']);
 
 /*  PACKAGE TASKS */
 

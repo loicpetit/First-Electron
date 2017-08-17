@@ -4,11 +4,13 @@
   "description": "First Electron app",
   "main": "build/main-process/main.js",
   "scripts": {
-    "start": "npm run build && electron .",
-    "debug": "npm run build && electron --debug=5858 .",
+    "start": "electron .",
+    "debug": "electron --debug=5858 .",
     "clean": "gulp Clean",
-    "build": "gulp Clean:build && gulp Build",
-    "package": "gulp Clean:package && gulp Package"
+    "build": "gulp Clean:Build && gulp Build",
+    "build:typescript": "gulp Build:TypeScript",
+    "build:less": "gulp Build:Less",
+    "package": "gulp Clean:Package && gulp Package"
   },
   "repository": "https://github.com/loicpetit/First-Electron",
   "keywords": [
