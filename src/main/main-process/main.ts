@@ -58,30 +58,4 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-var ipc = electron.ipcMain;
-
-//  Taches
-let taches: any = [];
-function sendTaches(sender: any){
-  sender.send('taches', taches);
-}
-ipc.on('taches', function (event: any, arg: any) {
-  sendTaches(event.sender);
-})
-ipc.on('taches.create', function (event: any, arg: any) {
-  let tache = arg;
-  tache.id = computeTacheId();
-  taches.push(tache);
-  sendTaches(event.sender);
-})
-
-function computeTacheId(){
-    let maxId = 0;
-    for(let tache of taches){
-      if(tache.id > maxId){
-        maxId = tache.id;
-      }
-    }
-    return maxId + 1;
-}
+import './services/taches';

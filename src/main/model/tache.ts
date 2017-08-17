@@ -1,4 +1,4 @@
-export class Tache {
+export default class Tache {
     id: number;
     libelle: string;
     dateCreation: Date;

@@ -1,12 +1,18 @@
-import {Tache} from '../../model/tache';
+import Tache from '../../model/tache';
+import { ipcRenderer as ipc } from 'electron';
 
 export class TachesService {
-    static $inject: string[] = [];
-    findAll(): Tache[] {
-            let t1: Tache = new Tache();
-            t1.id = 1;
-            t1.libelle = 'tache 1';
-            return [t1];
+    static $inject: string[] = ['$q'];
+    constructor(public $q: angular.IQService) {
+    }
+
+    findAll(): angular.IPromise<Tache[]> {
+        let deferred = this.$q.defer<Tache[]>();
+        ipc.once('taches', function(event: Electron.Event, taches: Tache[]){
+            deferred.resolve(taches);
+        });
+        ipc.send('taches');
+        return deferred.promise;
     }
 }
 
