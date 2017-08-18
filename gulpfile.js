@@ -37,7 +37,7 @@ gulp.task('Build:TypeScript', function(){
         .js.pipe(gulp.dest('build'));
 });
 
-gulp.task('Build:Install', ['Copy'], function(){
+gulp.task('Build:Install', ['Build:Copy'], function(){
     return gulp.src('build/package.json')
         .pipe(install());
 })
