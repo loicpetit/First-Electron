@@ -7,19 +7,16 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug",
-            "runtimeExecutable": "npm",
+            "name": "Debug main process",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
             "windows": {
-                "runtimeExecutable": "npm.cmd"
+                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
             },
-            "runtimeArgs": [
-                "run",
-                "debug"
+            "args": [
+                "."
             ],
-            "port": 5858,
-            "outFiles": [
-                "${workspaceRoot}\\build\\**\\*.js"
-            ]
+            "protocol": "inspector"
         }
     ]
 }
