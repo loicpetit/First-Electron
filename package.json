@@ -9,6 +9,7 @@
     "build": "gulp Clean:Build && gulp Build",
     "build:typescript": "gulp Build:TypeScript",
     "build:less": "gulp Build:Less",
+    "build:copy": "gulp Build:Copy",
     "package": "gulp Clean:Package && gulp Package"
   },
   "repository": "https://github.com/loicpetit/First-Electron",

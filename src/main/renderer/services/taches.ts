@@ -14,6 +14,10 @@ export class TachesService {
         ipc.send('taches');
         return deferred.promise;
     }
+
+    openTacheCreateModal(): void {
+        ipc.send('taches.create.modal');
+    }
 }
 
 export default function (app: angular.IModule) {

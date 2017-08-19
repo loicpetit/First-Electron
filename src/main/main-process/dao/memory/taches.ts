@@ -16,8 +16,20 @@ export class Dao {
     } 
     
     save(tache: Tache): Tache {
+        tache.id = this.computeId();
+        tache.dateCreation = new Date();
         this.taches.push(tache);
         return tache;
+    }
+
+    private computeId(): number {
+        let maxId: number = 0;
+        for(let tache of this.taches){
+            if(tache.id > maxId){
+                maxId = tache.id;
+            }
+        }
+        return maxId + 1;
     }
 }
 

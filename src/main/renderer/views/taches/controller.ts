@@ -1,23 +1,28 @@
-import {ipcRenderer as ipc} from 'electron';
+import { ipcRenderer as ipc } from 'electron';
 import Tache from '../../../model/tache';
-import {TachesService} from '../../services/taches';
+import { TachesService } from '../../services/taches';
 
 export class TacheController {
     taches: Tache[];
-    
+
     static $inject: string[] = ['TachesService'];
-    constructor(public TachesService: TachesService){
+    constructor(public TachesService: TachesService) {
         this.findAll();
     }
 
-    findAll(){
-        this.TachesService.findAll().then(function setTaches(this: TacheController, taches: Tache[]){
+    findAll(): void {
+        this.TachesService.findAll().then(function setTaches(this: TacheController, taches: Tache[]) {
             this.taches = taches;
         }.bind(this));
     }
 
-    add():void {
-        alert('add');
+    add(): void {
+        this.TachesService.openTacheCreateModal();
+    }
+
+    delete($event: angular.IAngularEvent, tache: Tache): void {
+        $event.stopPropagation();
+        alert('delete');
     }
 }
 
