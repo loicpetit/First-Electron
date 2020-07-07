@@ -26,7 +26,7 @@
     "@types/angular": "^1.6.28",
     "@types/angular-ui-router": "^1.1.37",
     "del": "^3.0.0",
-    "electron": "^1.6.2",
+    "electron": "^9.1.0",
     "electron-packager": "^8.7.2",
     "gulp": "^3.9.1",
     "gulp-install": "^1.1.0",
